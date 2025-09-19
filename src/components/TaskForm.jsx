@@ -1,6 +1,7 @@
 import React from 'react';
-
+import Tag from './Tag';
 import './TaskForm.css';
+import './Tag.css';
 const TaskForm = () => {
     return (
         <header className='app_header'>
@@ -8,7 +9,7 @@ const TaskForm = () => {
                 <input type="text" className='task_input' placeholder='Enter your task' />
                 <div className='task_form_bottom_line'>
                     <div>
-                        <button className='tag'>HTML</button>
+                        <Tag />
                         <button className='tag'>CSS</button>
                         <button className='tag'>JavaScript</button>
                         <button className='tag'>React</button>
