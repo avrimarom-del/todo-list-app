@@ -1,6 +1,6 @@
 .app {
   display: grid;
-  grid-template-rows: 15opx auto;
+  grid-template-rows: 150px auto;
 }
 
 .app_main {
