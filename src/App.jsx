@@ -8,6 +8,7 @@ import Done from './assets/white-heavy-check-mark_2705.webp';
 import TaskColumn from './components/TaskColumn'; 
 import TaskCard from './components/TaskCard';    
 
+
 const App = () => {
     return (
         <div className='app'>
