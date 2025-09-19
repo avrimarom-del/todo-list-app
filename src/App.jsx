@@ -5,7 +5,8 @@ import TaskForm from './components/TaskForm';
 import ToDo from './assets/direct-hit_1f3af.webp';
 import Doing from './assets/fire_1f525.webp';
 import Done from './assets/white-heavy-check-mark_2705.webp';
-import TaskColumn from './components/TaskColumn';     
+import TaskColumn from './components/TaskColumn'; 
+import TaskCard from './components/TaskCard';    
 
 const App = () => {
     return (
