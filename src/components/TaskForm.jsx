@@ -4,7 +4,7 @@ import Tag from './Tag';
 import './TaskForm.css';
 import "./Tag"
 
-const TaskForm = () => {
+const TaskForm = ({setTasks}) => {
     const[taskData, setTaskData] = useState({
         task: "",
         status: "todo",
@@ -12,8 +12,8 @@ const TaskForm = () => {
     });
 
     const checkTag = (tag) => {
-        return taskData.tags.some(item => item === tag);
-    }
+        return taskData.tags.some(item => item === tag)
+    }   
 
     const selectTag = (tag) => {
         if (taskData.tags.some(item => item === tag)) {
@@ -29,9 +29,6 @@ const TaskForm = () => {
 
         };
 
-        console.log(taskData.tags);
-     
-
     const handleChange = (e) => {
         const {name, value} = e.target;
 
@@ -43,6 +40,9 @@ const TaskForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(taskData);
+        setTasks(prev => {
+            return [...prev, taskData]
+        })
     }
 
     /*
