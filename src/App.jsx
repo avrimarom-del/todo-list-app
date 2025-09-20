@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import './App.css';
 import TaskForm from './components/TaskForm';
@@ -7,10 +7,17 @@ import Doing from './assets/fire_1f525.webp';
 import Done from './assets/white-heavy-check-mark_2705.webp';
 import TaskColumn from './components/TaskColumn'; 
 import TaskCard from './components/TaskCard';    
+import js from '@eslint/js';
 
+const oldTask = localStorage.getItem("tasks");
 
 const App = () => {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState(JSON.parse(oldTask) || []);
+
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     const handleDelete = (taskIndex) => {
         const newTask = tasks.filter((task, index) => index !== taskIndex);
