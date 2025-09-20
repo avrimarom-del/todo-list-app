@@ -7,8 +7,26 @@ import "./Tag"
 const TaskForm = () => {
     const[taskData, setTaskData] = useState({
         task: "",
-        status: "todo"
-    })
+        status: "todo",
+        tags: []
+    });
+
+    const selectTag = (tag) => {
+        if (taskData.tags.some(item => item === tag)) {
+            const filterTags =taskData.tags.filter(item => item !== tag);
+            setTaskData(prev => {
+                return {...prev, tags: filterTags}
+            })
+         } else{ 
+                setTaskData(prev => {
+                    return {...prev, tags: [...prev.tags, tag]}
+                })
+            }
+
+        };
+
+        console.log(taskData.tags);
+     
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -48,10 +66,10 @@ const TaskForm = () => {
 
                 <div className='task_form_bottom_line'>
                     <div>
-                        <Tag tagName="HTML" />
-                        <Tag tagName="css" />
-                        <Tag tagName="JavaScript" />
-                        <Tag tagName="React" />
+                        <Tag tagName="HTML" selectTag={selectTag} />
+                        <Tag tagName="css" selectTag={selectTag} />
+                        <Tag tagName="JavaScript" selectTag={selectTag} />
+                        <Tag tagName="React" selectTag={selectTag} />
                     </div>
                     <div>
                         <select className='task_status' onChange={handleChange} name="status" id="status">
