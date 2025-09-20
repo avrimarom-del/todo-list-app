@@ -2,7 +2,7 @@ import React from "react";
 import TaskCard from "./TaskCard";
 import "./TaskColumn.css"
 
-const TaskColumn = ({icon, title, tasks, status}) => {
+const TaskColumn = ({icon, title, tasks, status, handleDelete}) => {
     return (
         <section className="task_column">
             <h2 className="task_column_heading">
@@ -15,6 +15,8 @@ const TaskColumn = ({icon, title, tasks, status}) => {
                     key={index}
                     title={task.task}
                     tags={task.tags} 
+                    handleDelete={handleDelete}
+                    index={index}
                     />
                 )
             )}

@@ -42,27 +42,20 @@ const TaskForm = ({setTasks}) => {
         console.log(taskData);
         setTasks(prev => {
             return [...prev, taskData]
-        })
-    }
-
-    /*
-    const [task, setTask] = useState('');
-    const [status, setStatus] = useState('todo')
-    
-    const handleTaskChange = (e) => {
-        setTask(e.target.value);
-    }
-
-    const handleStatusChange = (e) => {
-        setStatus(e.target.value);
-        }*/
-
+        });
+        setTaskData({
+        task: "",
+        status: "todo",
+        tags: []
+    });
+    };
     return (
         <header className='app_header'>
             <form onSubmit={handleSubmit}>
                 <input 
                 type="text"
                 name='task' 
+                value={taskData.task}
                 className='task_input' 
                 placeholder='Enter your task' 
                 onChange={handleChange} 
@@ -76,7 +69,12 @@ const TaskForm = ({setTasks}) => {
                         <Tag tagName="React" selectTag={selectTag} selected={checkTag("React")} />
                     </div>
                     <div>
-                        <select className='task_status' onChange={handleChange} name="status" id="status">
+                        <select 
+                            name="status"
+                            value={taskData.status}
+                            className='task_status'
+                            onChange={handleChange} 
+                            >
                             <option value="todo">To Do</option>
                             <option value="doing">Doing</option>
                             <option value="done">Done</option>

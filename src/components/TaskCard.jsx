@@ -4,7 +4,7 @@ import Tag from "./Tag";
 import deleteIcon from '../assets/cross-mark_274c.webp';
 import './TaskCard.css';
 
-const TaskCard = ({ title, tags }) => { 
+const TaskCard = ({ title, tags, handleDelete, index }) => { 
     return (
         <article className="task_card">
             <p className="task_text">{title}</p>
@@ -17,7 +17,7 @@ const TaskCard = ({ title, tags }) => {
                     )
                   }
                 </div>
-                <div className="task_delete">
+                <div className="task_delete" onClick={() => handleDelete(index)}>
                   <img src={deleteIcon}  className="delete_icon" alt="delete icon" />
                </div>
             </div>
