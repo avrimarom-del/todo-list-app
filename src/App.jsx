@@ -24,16 +24,28 @@ const App = () => {
         const newTask = tasks.filter((task, index) => index !== taskIndex);
         setTasks(newTask);
     }
+
+    const onDrop = (status, position) => {
+     if (activeCard == null || activeCard === undefined) return
+
+    const taskToMove = tasks[activeCard];
+    const updatedTasks = tasks.filter((task,index) => index !== activeCard)
+
+    updatedTasks.splice(position, 0, {
+      ...taskToMove,
+      status: status
+    })
+
+    setTasks(updatedTasks)
+    };    
     return (
         <div className='app'>
           <TaskForm setTasks={setTasks} />
           <main className='app_main'>
-            <TaskColumn icon={ToDo} title="To Do" tasks={tasks} status="todo" handleDelete={handleDelete} setActiveCard={setActiveCard}/>
-            <TaskColumn icon={Doing} title="Doing" tasks={tasks} status="doing" handleDelete={handleDelete} setActiveCard={setActiveCard}/>
-            <TaskColumn icon={Done} title="Done" tasks={tasks} status="done" handleDelete={handleDelete} setActiveCard={setActiveCard}/>
+            <TaskColumn icon={ToDo} title="To Do" tasks={tasks} status="todo" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop}/>
+            <TaskColumn icon={Doing} title="Doing" tasks={tasks} status="doing" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop}/>
+            <TaskColumn icon={Done} title="Done" tasks={tasks} status="done" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop}/>
           </main>
-
-          <h1>Active Card - {activeCard}</h1>
         </div>
     );
 };
