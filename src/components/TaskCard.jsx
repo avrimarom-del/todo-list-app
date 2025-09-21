@@ -4,9 +4,14 @@ import Tag from "./Tag";
 import deleteIcon from '../assets/cross-mark_274c.webp';
 import './TaskCard.css';
 
-const TaskCard = ({ title, tags, handleDelete, index }) => { 
-    return (
-        <article className="task_card">
+const TaskCard = ({ title, tags, handleDelete, index, setActiveCard }) => { 
+  return (
+    <article
+      className="task_card"
+      draggable="true"
+      onDragStart={() => setActiveCard(index)}
+      onDragEnd={() => setActiveCard(null)}
+    >
             <p className="task_text">{title}</p>
 
             <div className="task_card_bottom_line">
