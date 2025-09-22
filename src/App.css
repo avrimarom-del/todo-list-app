@@ -9,6 +9,50 @@
   padding: 20px 8%;
 }
 
+.search_bar{
+  width: 30%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 0 8%;
+}
+
+.search_input{
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+.tag_buttons{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag_btn{
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tag_btn.active{
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.tag_btn.clear{
+  font-weight: 600;
+}
+
 .task_column {
   width: 33.33%;
   margin: 20px; 

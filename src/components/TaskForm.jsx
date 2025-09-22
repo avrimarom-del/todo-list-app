@@ -51,48 +51,46 @@ const TaskForm = ({ setTasks, dark, setDark }) => {
         });
     };
     return (
-        // <header className='app_header'>
-            <div className="app_header">
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name='task'
-                        value={taskData.task}
-                        className='task_input'
-                        placeholder='Enter your task'
-                        onChange={handleChange}
-                    />
+        <div className="app_header">
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name='task'
+                    value={taskData.task}
+                    className='task_input'
+                    placeholder='Enter your task'
+                    onChange={handleChange}
+                />
 
-                    <div className='task_form_bottom_line'>
-                        <div>
-                            <Tag tagName="HTML" selectTag={selectTag} selected={checkTag("HTML")} />
-                            <Tag tagName="CSS" selectTag={selectTag} selected={checkTag("CSS")} />
-                            <Tag tagName="JavaScript" selectTag={selectTag} selected={checkTag("JavaScript")} />
-                            <Tag tagName="React" selectTag={selectTag} selected={checkTag("React")} />
-                        </div>
-                        <div>
-                            <select
-                                name="status"
-                                value={taskData.status}
-                                className='task_status'
-                                onChange={handleChange}
-                            >
-                                <option value="todo">To Do</option>
-                                <option value="doing">Doing</option>
-                                <option value="done">Done</option>
-                            </select>
-
-                            <button type="submit" className='task_submit'>+ Add Task</button>
-                        </div>
+                <div className='task_form_bottom_line'>
+                    <div>
+                        <Tag tagName="HTML" selectTag={selectTag} selected={checkTag("HTML")} />
+                        <Tag tagName="CSS" selectTag={selectTag} selected={checkTag("CSS")} />
+                        <Tag tagName="JavaScript" selectTag={selectTag} selected={checkTag("JavaScript")} />
+                        <Tag tagName="React" selectTag={selectTag} selected={checkTag("React")} />
                     </div>
-                </form>
-                <div className="theme_toggle_wrapper">
-                    <button aria-label="Toggle theme" className="theme_toggle" onClick={() => setDark(d => !d)}>
-                        {dark ? <FaSun /> : <FaMoon />}
-                    </button>
+                    <div>
+                        <select
+                            name="status"
+                            value={taskData.status}
+                            className='task_status'
+                            onChange={handleChange}
+                        >
+                            <option value="todo">To Do</option>
+                            <option value="doing">Doing</option>
+                            <option value="done">Done</option>
+                        </select>
+
+                        <button type="submit" className='task_submit'>+ Add Task</button>
+                    </div>
                 </div>
+            </form>
+            <div className="theme_toggle_wrapper">
+                <button aria-label="Toggle theme" className="theme_toggle" onClick={() => setDark(d => !d)}>
+                    {dark ? <FaSun /> : <FaMoon />}
+                </button>
             </div>
-        // </header>
+        </div>
     )
 }
 export default TaskForm;
