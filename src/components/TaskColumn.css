@@ -8,3 +8,6 @@
   width: 30px;
   margin-right: 5px;  
 }
+.task_column_heading h3{
+  color: var(--text);
+}
