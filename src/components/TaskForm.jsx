@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 import Tag from './Tag';
@@ -63,13 +63,13 @@ const TaskForm = ({ setTasks, dark, setDark }) => {
                 />
 
                 <div className='task_form_bottom_line'>
-                    <div>
-                        <Tag tagName="HTML" selectTag={selectTag} selected={checkTag("HTML")} />
-                        <Tag tagName="CSS" selectTag={selectTag} selected={checkTag("CSS")} />
-                        <Tag tagName="JavaScript" selectTag={selectTag} selected={checkTag("JavaScript")} />
-                        <Tag tagName="React" selectTag={selectTag} selected={checkTag("React")} />
+                    <div className='task_form_tags'>
+                        <Tag tagName="ONLINE" selectTag={selectTag} selected={checkTag("ONLINE")} />
+                        <Tag tagName="OFFLINE" selectTag={selectTag} selected={checkTag("OFFLINE")} />
+                        <Tag tagName="MEETING" selectTag={selectTag} selected={checkTag("MEETING")} />
+                        <Tag tagName="HAMAL" selectTag={selectTag} selected={checkTag("HAMAL")} />
                     </div>
-                    <div>
+                    <div className='task_form_actions'>
                         <select
                             name="status"
                             value={taskData.status}

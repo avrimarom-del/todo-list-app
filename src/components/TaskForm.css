@@ -47,15 +47,24 @@
 
 .task_form_bottom_line {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 16px;
 }
 
+.task_form_tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
 
-.task_form_bottom_line {
+.task_form_actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .task_status {

@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
 
-import './App.css';
 import TaskForm from './components/TaskForm';
 import ToDo from './assets/direct-hit_1f3af.webp';
 import Doing from './assets/fire_1f525.webp';
 import Done from './assets/white-heavy-check-mark_2705.webp';
 import TaskColumn from './components/TaskColumn';
+import './App.css';
 
 const oldTask = localStorage.getItem("tasks");
-const tags = ["HTML", "CSS", "JavaScript", "React"];
+const tags = ["ONLINE", "OFFLINE", "MEETING", "HAMAL"];
 
 const App = () => {
   const [tasks, setTasks] = useState(JSON.parse(oldTask) || []);
@@ -20,6 +19,7 @@ const App = () => {
   });
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTag, setActiveTag] = useState('');
+  
 
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const App = () => {
   const filteredTasks = tasks.filter(task => {
     const matchesTag = activeTag ? task.tags.includes(activeTag) : true;
     const q = searchQuery.trim().toLowerCase();
-    const matchesQuery = q ? task.task.toLowerCase().includes(q) : true; // only match task content
+    const matchesQuery = q ? task.task.toLowerCase().includes(q) : true;
     return matchesTag && matchesQuery;
   });
 
@@ -70,9 +70,9 @@ const App = () => {
           <input className="search_input" placeholder="Search tasks..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
           <div className="tag_buttons">
             {tags.map(tag => (
-              <button key={tag} className={"tag_btn " + (activeTag === tag ? 'active' : '')} onClick={() => setActiveTag(a => a === tag ? '' : tag)}>{tag}</button>
+              <button key={tag} className={`tag_btn tag-btn-${tag.toLowerCase()} ${activeTag === tag ? 'active' : ''}`} onClick={() => setActiveTag(a => a === tag ? '' : tag)}>{tag}</button>
             ))}
-            <button className={"tag_btn clear " + (activeTag === '' ? 'active' : '')} onClick={() => setActiveTag('')}>All</button>
+            <button className={`tag_btn tag-btn-all ${activeTag === '' ? 'active' : ''}`} onClick={() => setActiveTag('')}>All</button>
           </div>
         </div>
         <TaskColumn icon={ToDo} title="To Do" tasks={filteredTasks} status="todo" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />

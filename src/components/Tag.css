@@ -1,10 +1,25 @@
 .tag {
     font-size: 14px;
-    font-weight: 500;
-    background-color: #f9f9f9;
-    border: 1px solid #dfe3e6;
-    border-radius: 5px;
-    padding: 2px 10px;
-    margin-right: 10px;
+    font-weight: 600;
+    background-color: white;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 9px 16px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.task_form_tags .tag {
     cursor: pointer;
+}
+
+.task_form_tags .tag:hover {
+    border-color: var(--primary);
+}
+
+.task_form_tags .tag-selected {
+    font-weight: 700;
 }

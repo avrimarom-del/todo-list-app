@@ -49,6 +49,12 @@
   border-color: var(--primary);
 }
 
+.tag-btn-online.active{ background: #e7a27a; border-color: #e7a27a; color: #2c2c2c }
+.tag-btn-offline.active{ background: #7fd3c6; border-color: #7fd3c6; color: #0f2a24 }
+.tag-btn-meeting.active{ background: #f0e5a8; border-color: #f0e5a8; color: #2d2b1f }
+.tag-btn-hamal.active{ background: #a8dbef; border-color: #a8dbef; color: #18323a }
+.tag-btn-all.active{ background: var(--primary); border-color: var(--primary); color: #fff }
+
 .tag_btn.clear{
   font-weight: 600;
 }
