@@ -9,3 +9,28 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+:root{
+  --bg: #ffffff;
+  --text: #0b0b0b;
+  --muted: #686868;
+  --card: #ffffff;
+  --border: #dcdcdc;
+  --input-bg: #f9f9f9;
+  --primary: #6457f9;
+}
+
+html.dark {
+  --bg: #0b0b0f;
+  --text: #e6e6e6;
+  --muted: #bdbdbd;
+  --card: #0f1113;
+  --border: #222426;
+  --input-bg: #111214;
+  --primary: #8b86ff;
+}
+
+body{
+  background-color: var(--bg);
+  color: var(--text);
+}
